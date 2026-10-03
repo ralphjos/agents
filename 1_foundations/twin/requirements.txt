@@ -3,3 +3,7 @@ gradio
 pypdf
 openai
 python-dotenv
+langchain-community
+langchain-openai
+langchain-text-splitters
+langchain-chroma

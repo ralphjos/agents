@@ -8,6 +8,7 @@ EXAMPLES = [
     "Tell me about your background and experience.",
     "What kinds of projects are you working on now?",
     "What are your strongest technical skills?",
+    "Tell me about your experience at Alation.",
     "How can I get in touch with you?",
 ]
 
