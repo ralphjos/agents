@@ -1,0 +1,12 @@
+At Alation, there was a period of time when more developer resources were needed on the front end to be able to push out the new search page
+redesign.  I felt that I would not be able to contribute as much during this time, so I took the opportunity to learn React and Redux to be able
+to make minor contributions on the front end.  I picked up simpler tasks that involved more minor front end changes, but I was also able
+to make more significant contributions later, such as the following:
+
+* Become a regular reviewer of front end code for my peers.
+* Introduced a performance-oriented refactor to eliminate redundant component rerenders.
+* Proposed and implemented changes across both the back and front end to be able to keep track of performance metrics in Search, such as click relevancy,
+to measure search quality and user engagement across different versions.
+
+Please note that I would not refer to myself as a React/Redux expert by any means.  I was merely able to learn as I go when more resources were required on the
+front end by our team.
