@@ -1,0 +1,18 @@
+At Birst, I introduced a connection pool that can be used to retrieve JDBC connections.  These connections
+are used to query data in customer data warehouses to populate dashboards in Birst.  Because these queries can be quite frequent, this pool would avoid
+the cost of repeatedly creating and destroying database connections and lead to better performance when loading dashboards.
+
+I had originally proposed making use of an existing implementation of a connection pool (such as HikariCP at the time), as a matter of risk mitigation.
+I had concerns about edge cases that might we might miss that could potentially block customers from being able to query their data.
+The engineering team backed me up on the proposal, but upon myself and our engineering team presenting it to the CEO, 
+I was requested directly to create a custom implementation due to the fact that packaging additional software such as HikariCP 
+would lead to additional bloat.
+
+I implemented the connection pool be thread safe and have reusable connections.  Upon invoking .close() on a connection, it is not actually closed, 
+but returned back to the pool.  However, there were issues in production that we eventually saw. For example, we observed that connections were being 
+leaked and never returned, thus blocking querying their data.  This was due to unhandled potential errors that could happen when using the database connection.
+
+Eventually, I did implement making use of HikariCP due to production issues, and there were actually no production issues directly caused
+by the pool afterwards.  The implementation of the custom implementation could definitely have been better, but I learned that in cases such as this, 
+it might be a worthy tradeoff to trust an existing implementations and not try to handle every potential edge case ourselves, as existing 
+implementations have withstood the test of time.

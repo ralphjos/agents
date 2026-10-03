@@ -1,0 +1,13 @@
+At Alation, I was responsible for upgrading the Elasticsearch version used in the code base from version 1.x to version 7.x.  
+More specifically, I made extensive changes to the code base involving querying and installation of Elasticsearch.  This upgrade was prompted
+primarily due to security concerns raised by larger customers.  They wanted all the security enhancements introduced since version 1.x so that they
+are compliant from a security standpoint within their organizations.  However, this large upgrade also made it easier for the Search team to introduce 
+vector search within Alation when making much smoother transition to version 8.x in the future.
+
+Changes primarily included the following:
+
+* Updating the Python ES client 
+* Adapting to the updated query DSL
+* (Beta only) allow customers to configure whether they want to use version 1.x or 7.x.  To accomodate for this, I introduced a compatibility shim layer
+that allowed customers to use legacy 1.x behavior in case they ran into issues with 7.x.  This allowed us a fallback mechanism in case any customers
+encounter issues migrating to 7.x
